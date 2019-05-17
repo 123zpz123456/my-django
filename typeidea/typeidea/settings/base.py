@@ -29,6 +29,10 @@ ALLOWED_HOSTS = ['*','yisafm-8080-boykid.dev.ide.live']
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    'config',
+    'comment',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
