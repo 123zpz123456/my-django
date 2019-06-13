@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.sitemaps import views as sitemap_views
+from django.conf import settings
+from django.conf.urls import url, include
+from django.conf.urls.static import static
 
 from .custom_site import custom_site
 from config.views import LinkListView
@@ -45,5 +48,6 @@ urlpatterns = [
     url(r'^admin/', xadmin.site.urls, name='xadmin'),
     url(r'^category-autocomplete/$', CategoryAutocomplete.as_view(), name='category-autocomplete'),
     url(r'^tag-autocompletes/$', TagAutocomplete.as_view(), name='tag-autocomplete'),
+    url(r'^ckeditor/',include('ckeditor_uploader.urls')),
     #url(r'^super_admin/', admin.site.urls, name='super-admin'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #static用来配置图片资源访问，正式环境中实验nginx

@@ -29,16 +29,19 @@ ALLOWED_HOSTS = ['*','yisafm-8080-boykid.dev.ide.live']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog',
+    'blog',   
     'config',
     'comment',
     'typeidea',
 
-    'xadmin',
+    'xadmin',    #xadmin后台应用
     'crispy_forms',
 
-    'dal',
+    'dal',    #自动补全应用
     'dal_select2',
+
+    'ckeditor',    #富文本应用
+    'ckeditor_uploader',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,5 +131,22 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'themes', THEME, "static"),
 ]
 
-XADMIN_TITLE = 'Typeidea管理后台'
-XADMIN_FOOTER_TITLE = 'power by zpz(979994367@qq.com)'
+XADMIN_TITLE = 'Typeidea管理后台'  #xadmin顶部标题
+XADMIN_FOOTER_TITLE = 'power by zpz(979994367@qq.com)' #xadmin底部信息
+
+'''配置富文本编辑器'''
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar': 'full',
+        'height': 300,
+        'width': 800,
+        'tabSpaces': 4,
+        'extraPlugins': 'codesnippet',  #配置代码插件
+    }
+}
+MEDIA_URL = '/media/'    #服务端文件存放路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = 'article_images'
+DEFAULT_FILE_STORAGE = 'typeidea.storage.WatermarkStorage'    #自定义存储引擎
+
+

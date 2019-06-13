@@ -1,10 +1,8 @@
 from django.contrib import admin
+import xadmin
 
 from .models import Link, Sidebar
-#from typeidea.custom_site import custom_site
 from typeidea.base_admin import BaseOwnerAdmin
-
-import xadmin
 
 
 @xadmin.sites.register(Link)
