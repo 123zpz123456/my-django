@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'ckeditor',    #富文本应用
     'ckeditor_uploader',
 
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
