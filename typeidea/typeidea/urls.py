@@ -31,13 +31,14 @@ from blog.views import (
 )
 from blog.rss import LatestPostFeed
 from blog.sitemap import PostSitemap
-from blog.apis import PostViewSet
+from blog.apis import PostViewSet, CategoryViewSet
 from .autocomplete import CategoryAutocomplete, TagAutocomplete
 
 import xadmin
 
 router = DefaultRouter()
 router.register(r'post', PostViewSet, base_name='api-post')
+router.register(r'category', CategoryViewSet, base_name='api-category')
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(),name='index'),
