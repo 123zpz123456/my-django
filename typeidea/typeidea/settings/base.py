@@ -156,3 +156,4 @@ REST_REAMEWORK = {
     'DEFAU;T_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',   
     'PAGE_SIZE': 2,
 }
+

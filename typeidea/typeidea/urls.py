@@ -58,3 +58,9 @@ urlpatterns = [
     url(r'^api/', include(router.urls, namespace="api")),
     url(r'^api/docs/', include_docs_urls(title='typeidea apis')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #static用来配置图片资源访问，正式环境中实验nginx
+
+if settings.DEBUG:    #只有在DEBUG模式下才加加载debug_toolbar
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
