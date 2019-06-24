@@ -1,0 +1,18 @@
+from django.contrib import admin
+
+
+class BaseOwnerAdmin():
+    '''
+    1.用来自动补充文章、分类、标签、侧边栏、友链这些的 Model 的 owner 字段
+    2.用来针对 queryset 过滤当前用户的数据
+    '''
+    #exclude = ('owner',)
+
+    def get_list_queryset(self):
+        request = self.request
+        qs = super().get_list_queryset()
+        return qs.filter(owner=request.user)
+
+    def save_models(self):
+        self.owner = self.request.user
+        return super().save_models()
